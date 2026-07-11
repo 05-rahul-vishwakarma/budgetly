@@ -4,10 +4,10 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Switch, Mo
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ArrowLeft, Plus, Trash2, Edit2, ChevronRight, AlertCircle, CheckCircle, Clock, Target, Bell } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
-import { Badge } from '@/shared/components/ui/Badge';
-import { Input } from '@/shared/components/ui/Input';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
+import { Input } from '@/components/ui/Input';
 
 const mockBudgets = [
   { id: '1', name: 'Monthly Spending', period: 'monthly', amount: 50000, spent: 32450, categories: ['Food & Dining', 'Transport', 'Shopping'], alertAt: 80, alertEnabled: true },

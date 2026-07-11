@@ -4,9 +4,9 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Modal, Ale
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ArrowLeft, Download, Upload, Trash2, Database, HardDrive, FileText, ChevronRight, AlertCircle, CheckCircle, X, Share2, ExternalLink, Tag, Target } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
-import { Badge } from '@/shared/components/ui/Badge';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
 
 export default function DataStorageScreen() {
   const router = useRouter();

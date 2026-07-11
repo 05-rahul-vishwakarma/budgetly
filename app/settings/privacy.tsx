@@ -3,8 +3,8 @@
 import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Linking, Switch } from 'react-native';
 import { useRouter } from 'expo-router';
 import { ArrowLeft, Shield, FileText, AlertCircle, CheckCircle, ExternalLink, ChevronRight, Mail, Phone, MessageSquare, Github, Twitter, Linkedin } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Badge } from '@/shared/components/ui/Badge';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Badge } from '@/components/ui/Badge';
 
 export default function PrivacyPolicyScreen() {
   const router = useRouter();

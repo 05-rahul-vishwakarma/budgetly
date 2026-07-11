@@ -3,8 +3,8 @@
 import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Linking } from 'react-native';
 import { useRouter } from 'expo-router';
 import { ArrowLeft, FileText, Shield, AlertCircle, CheckCircle, ExternalLink, ChevronRight, Gavel, Scale } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Badge } from '@/shared/components/ui/Badge';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Badge } from '@/components/ui/Badge';
 
 export default function TermsOfServiceScreen() {
   const router = useRouter();

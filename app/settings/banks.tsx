@@ -4,10 +4,10 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Modal, Swi
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ArrowLeft, Building, CreditCard, ChevronRight, Plus, Trash2, Check, AlertCircle, Link, X, Shield, AlertTriangle } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
-import { Badge } from '@/shared/components/ui/Badge';
-import { Input } from '@/shared/components/ui/Input';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
+import { Input } from '@/components/ui/Input';
 
 const mockBanks = [
   { id: '1', name: 'HDFC Bank', logo: '🏦', status: 'connected', lastSync: '2 hours ago', accounts: 3, color: '#001F3F' },

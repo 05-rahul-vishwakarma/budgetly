@@ -4,12 +4,12 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet } from 'rea
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Calendar, ChevronLeft, ChevronRight, Download, Filter, TrendingUp, TrendingDown, PieChart, BarChart2, DollarSign, Wallet, CreditCard, ArrowUpRight, ArrowDownRight } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
-import { Badge } from '@/shared/components/ui/Badge';
-import { ProgressBar } from '@/shared/components/ui/ProgressBar';
-import { formatCurrency, formatDate, getCategoryColor, categories } from '@/shared/utils';
-import { CategoryBreakdown, MonthlyTrend, MerchantSpending } from '@/shared/types';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
+import { ProgressBar } from '@/components/ui/ProgressBar';
+import { formatCurrency, formatDate, getCategoryColor, categories } from '@/utils';
+import { CategoryBreakdown, MonthlyTrend, MerchantSpending } from '@/types';
 
 const mockCategoryBreakdown: CategoryBreakdown[] = [
   { categoryId: 'food', categoryName: 'Food', icon: 'Utensils', color: '#EF4444', amount: 15000, percentage: 30, transactionCount: 45, trend: 'up' },

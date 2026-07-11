@@ -4,13 +4,13 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Switch, Mo
 import { useRouter } from 'expo-router';
 import { useState, useEffect } from 'react';
 import { User, Bell, Shield, Moon, Sun, Monitor, Palette, Trash2, LogOut, ChevronRight, Settings, CreditCard, Smartphone, Key, Info, Mail, Twitter, Github, Shield as ShieldIcon, Check, X, ArrowLeft, Target, MessageSquare, HelpCircle, FileText, Gavel, Linkedin, ChevronDown, ChevronUp } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
-import { Badge } from '@/shared/components/ui/Badge';
-import { Avatar } from '@/shared/components/ui/Avatar';
-import { Input } from '@/shared/components/ui/Input';
-import { useAuthStore } from '@/modules/auth/store/authStore';
-import { useUIStore } from '@/shared/stores';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
+import { Avatar } from '@/components/ui/Avatar';
+import { Input } from '@/components/ui/Input';
+import { useAuthStore } from '@/features/auth/store/authStore';
+import { useUIStore } from '@/stores';
 
 interface SettingsItem {
   id: string;

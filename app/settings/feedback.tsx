@@ -4,9 +4,9 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, KeyboardAv
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ArrowLeft, Send, Star, Smile, Meh, Frown, CheckCircle, X, Loader2, Mail, Github, Zap, ChevronRight } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
-import { Input } from '@/shared/components/ui/Input';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
 
 export default function SendFeedbackScreen() {
   const router = useRouter();

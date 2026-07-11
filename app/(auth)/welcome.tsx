@@ -2,7 +2,7 @@
 
 import { View, Text, Pressable, Image, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
-import { cn } from '@/shared/utils';
+import { cn } from '@/utils';
 import { ArrowRight, Shield, Zap, Smartphone, CreditCard, TrendingUp } from 'lucide-react-native';
 
 const features = [

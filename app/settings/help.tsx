@@ -4,9 +4,9 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, TextInput,
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ArrowLeft, Search, HelpCircle, MessageSquare, Mail, Phone, Github, ChevronRight, CheckCircle, X, Send, Loader2 } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
-import { Input } from '@/shared/components/ui/Input';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
 
 const faqs = [
   { q: 'How do I connect my bank account?', a: 'Go to Settings > Connected Banks > Link a New Bank. Select your bank, authenticate via the account aggregator framework, and grant read-only access. Your transactions will sync automatically.' },

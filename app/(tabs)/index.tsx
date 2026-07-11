@@ -4,20 +4,20 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, RefreshCon
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Plus, Bell, ChevronRight, TrendingUp, TrendingDown, Wallet, CreditCard, ArrowDownRight, ArrowUpRight, MoreHorizontal, Menu, Search, Filter, Target } from 'lucide-react-native';
-import { formatCurrency, formatDate } from '@/shared/utils';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
-import { Badge } from '@/shared/components/ui/Badge';
-import { ProgressBar } from '@/shared/components/ui/ProgressBar';
-import { Avatar } from '@/shared/components/ui/Avatar';
-import { TransactionCard } from '@/modules/transactions/components/TransactionCard';
-import { BudgetCard } from '@/modules/budget/components/BudgetCard';
-import { BankCard } from '@/modules/bank/components/BankCard';
-import { useTransactionStore } from '@/modules/transactions/store/transactionStore';
-import { useBankStore } from '@/modules/bank/store/bankStore';
-import { useBudgetStore } from '@/modules/budget/store/budgetStore';
-import { useAuthStore } from '@/modules/auth/store/authStore';
-import { Transaction, BudgetWithProgress, BankAccount } from '@/shared/types';
+import { formatCurrency, formatDate } from '@/utils';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
+import { ProgressBar } from '@/components/ui/ProgressBar';
+import { Avatar } from '@/components/ui/Avatar';
+import { TransactionCard } from '@/features/transactions/components/TransactionCard';
+import { BudgetCard } from '@/features/budget/components/BudgetCard';
+import { BankCard } from '@/features/banks/components/BankCard';
+import { useTransactionStore } from '@/features/transactions/store/transactionStore';
+import { useBankStore } from '@/features/banks/store/bankStore';
+import { useBudgetStore } from '@/features/budget/store/budgetStore';
+import { useAuthStore } from '@/features/auth/store/authStore';
+import { Transaction, BudgetWithProgress, BankAccount } from '@/types';
 
 const mockTransactions: Transaction[] = [
   { id: '1', userId: '1', accountId: '1', amount: 450, type: 'debit', category: 'food', merchant: 'Swiggy', description: 'Lunch order', date: new Date().toISOString(), status: 'completed', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },

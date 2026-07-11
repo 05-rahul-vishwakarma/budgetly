@@ -4,10 +4,10 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Switch, Mo
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Shield, Fingerprint, Lock, Key, ChevronRight, ArrowLeft, ToggleLeft, ToggleRight, AlertCircle, CheckCircle, X } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
-import { Input } from '@/shared/components/ui/Input';
-import { Badge as BadgeUI } from '@/shared/components/ui/Badge';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import { Badge as BadgeUI } from '@/components/ui/Badge';
 
 export default function SecurityScreen() {
   const router = useRouter();

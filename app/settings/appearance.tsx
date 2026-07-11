@@ -4,8 +4,8 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Switch } f
 import { useRouter } from 'expo-router';
 import { useState, useEffect } from 'react';
 import { ArrowLeft, Sun, Moon, Monitor, Palette, ChevronRight, CheckCircle } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { useUIStore } from '@/shared/stores';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { useUIStore } from '@/stores';
 import { useColorScheme } from 'react-native';
 
 export default function AppearanceScreen() {

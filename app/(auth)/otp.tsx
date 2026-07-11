@@ -4,7 +4,7 @@ import { View, Text, TextInput, Pressable, StyleSheet, KeyboardAvoidingView, Pla
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useState, useEffect, useRef } from 'react';
 import { ArrowRight, RefreshCw, CheckCircle } from 'lucide-react-native';
-import { useAuthStore } from '@/modules/auth/store/authStore';
+import { useAuthStore } from '@/features/auth/store/authStore';
 
 export default function OTPScreen() {
   const router = useRouter();

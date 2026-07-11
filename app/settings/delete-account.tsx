@@ -4,10 +4,10 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Modal, Tex
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ArrowLeft, Trash2, AlertTriangle, Shield, UserMinus, Lock, CheckCircle, X, Loader2, Eye, EyeOff } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
-import { Input } from '@/shared/components/ui/Input';
-import { Badge } from '@/shared/components/ui/Badge';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import { Badge } from '@/components/ui/Badge';
 
 export default function DeleteAccountScreen() {
   const router = useRouter();

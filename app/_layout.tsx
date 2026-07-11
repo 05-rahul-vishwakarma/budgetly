@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router';
-import { Providers } from '@/shared/providers/providers';
-import { useAuthStore } from '@/modules/auth/store/authStore';
-import { SplashScreen } from '@/shared/components/ui/SplashScreen';
+import { Providers } from '@/providers/providers';
+import { useAuthStore } from '@/features/auth/store/authStore';
+import { SplashScreen } from '@/components/ui/SplashScreen';
 import { useEffect } from 'react';
 
 export default function RootLayout() {

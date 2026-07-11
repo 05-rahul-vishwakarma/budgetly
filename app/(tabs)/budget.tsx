@@ -4,14 +4,14 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Modal, Tex
 import { useRouter } from 'expo-router';
 import { useState, useEffect } from 'react';
 import { Plus, Target, AlertCircle, CheckCircle, Clock, Calendar, Edit, Trash2, ChevronRight, ArrowLeft, DollarSign } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
-import { Badge } from '@/shared/components/ui/Badge';
-import { ProgressBar } from '@/shared/components/ui/ProgressBar';
-import { Input } from '@/shared/components/ui/Input';
-import { formatCurrency, getCategoryColor, categories } from '@/shared/utils';
-import { BudgetWithProgress } from '@/shared/types';
-import { useBudgetStore } from '@/modules/budget/store/budgetStore';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
+import { ProgressBar } from '@/components/ui/ProgressBar';
+import { Input } from '@/components/ui/Input';
+import { formatCurrency, getCategoryColor, categories } from '@/utils';
+import { BudgetWithProgress } from '@/types';
+import { useBudgetStore } from '@/features/budget/store/budgetStore';
 
 const mockBudgets: BudgetWithProgress[] = [
   { id: '1', userId: '1', categoryId: 'food', amount: 15000, period: 'monthly', startDate: '2024-01-01', endDate: '2024-01-31', alertThreshold: 80, isActive: true, rollover: false, createdAt: '', updatedAt: '', spent: 8500, remaining: 6500, progress: 56.7, isOverBudget: false, daysRemaining: 15, categoryName: 'Food' },

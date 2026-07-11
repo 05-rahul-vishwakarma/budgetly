@@ -3,8 +3,8 @@
 import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Linking } from 'react-native';
 import { useRouter } from 'expo-router';
 import { ArrowLeft, Mail, Phone, MessageSquare, MapPin, Clock, Send, Twitter, Github, Linkedin, Globe } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Button } from '@/shared/components/ui/Button';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 export default function ContactUsScreen() {
   const router = useRouter();

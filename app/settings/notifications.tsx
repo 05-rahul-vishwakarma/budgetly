@@ -3,8 +3,8 @@
 import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Switch } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Bell, ChevronRight, ArrowLeft, BellRing, BellOff, Moon, Mail, Smartphone, Globe, AlertTriangle, CheckCircle } from 'lucide-react-native';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/shared/components/ui/Card';
-import { Badge } from '@/shared/components/ui/Badge';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Badge } from '@/components/ui/Badge';
 
 export default function NotificationsScreen() {
   const router = useRouter();
