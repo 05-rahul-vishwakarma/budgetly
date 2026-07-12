@@ -1,13 +1,10 @@
-'use client';
-
 import { View, Text, Pressable, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
-import { ArrowLeft, Shield, Zap, ShieldCheck, BarChart, CreditCard, CheckCircle } from 'lucide-react-native';
+import { Shield, Zap, ShieldCheck, BarChart, CreditCard, CheckCircle } from 'lucide-react-native';
 
 export default function BankIntroScreen() {
   const router = useRouter();
 
-  const handleBack = () => router.back();
   const handleContinue = () => router.push('/(auth)/bank-select');
 
   const benefits = [
@@ -23,9 +20,11 @@ export default function BankIntroScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      
-
-      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.header}>
           <View style={styles.headerIcon}>
             <View style={styles.shieldOuter}>
@@ -82,7 +81,9 @@ export default function BankIntroScreen() {
               { num: '3', title: 'Auto-Sync', desc: 'Transactions flow in automatically' },
             ].map((s, i) => (
               <View key={i} style={styles.step}>
-                <View style={styles.stepNumber}><Text style={styles.stepNumberText}>{s.num}</Text></View>
+                <View style={styles.stepNumber}>
+                  <Text style={styles.stepNumberText}>{s.num}</Text>
+                </View>
                 <View style={styles.stepInfo}>
                   <Text style={styles.stepTitle}>{s.title}</Text>
                   <Text style={styles.stepDesc}>{s.desc}</Text>
@@ -102,7 +103,11 @@ export default function BankIntroScreen() {
         </View>
       </ScrollView>
 
-      <Pressable onPress={handleContinue} style={styles.continueButton} android_ripple={{ color: 'rgba(255,255,255,0.2)' }}>
+      <Pressable
+        onPress={handleContinue}
+        style={styles.continueButton}
+        android_ripple={{ color: 'rgba(255,255,255,0.2)' }}
+      >
         <Text style={styles.continueButtonText}>Connect Bank Account</Text>
       </Pressable>
     </SafeAreaView>
@@ -111,38 +116,133 @@ export default function BankIntroScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F8FAFC' },
-  backButton: { position: 'absolute', top: 8, left: 8, zIndex: 10, padding: 8 },
   scrollView: { flex: 1 },
-  scrollContent: { paddingHorizontal: 24, paddingTop: 40, paddingBottom: 100, gap: 32 },
+  scrollContent: { paddingHorizontal: 24, paddingTop: 24, paddingBottom: 100, gap: 32 },
+
   header: { alignItems: 'center', marginBottom: 8, gap: 16 },
-  headerIcon: { width: 80, height: 80, borderRadius: 20, backgroundColor: '#ECFDF5', justifyContent: 'center', alignItems: 'center' },
-  shieldOuter: { width: 56, height: 56, borderRadius: 14, backgroundColor: '#10B981', justifyContent: 'center', alignItems: 'center' },
-  shieldInner: { width: 44, height: 44, borderRadius: 10, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center' },
+  headerIcon: {
+    width: 80,
+    height: 80,
+    borderRadius: 20,
+    backgroundColor: '#ECFDF5',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  shieldOuter: {
+    width: 56,
+    height: 56,
+    borderRadius: 14,
+    backgroundColor: '#10B981',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  shieldInner: {
+    width: 44,
+    height: 44,
+    borderRadius: 10,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   title: { fontSize: 28, fontWeight: '700', color: '#09090B', letterSpacing: -0.5, textAlign: 'center' },
   subtitle: { fontSize: 16, color: '#71717A', textAlign: 'center', lineHeight: 24, paddingHorizontal: 20 },
-  securityBadge: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 16, paddingVertical: 16, backgroundColor: '#fff', borderWidth: 1, borderColor: '#E4E4E7', borderRadius: 14 },
-  badgeItem: { flexDirection: 'row', alignItems: 'center', gap: 6 },
-  badgeDivider: { width: 1, height: 24, backgroundColor: '#E4E4E7' },
-  badgeText: { fontSize: 12, fontWeight: '500', color: '#10B981' },
+
+  // --- FIXED: badges now wrap instead of overflowing horizontally ---
+  securityBadge: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
+    rowGap: 10,
+    columnGap: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 12,
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#E4E4E7',
+    borderRadius: 14,
+  },
+  badgeItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  badgeDivider: {
+    width: 1,
+    height: 16,
+    backgroundColor: '#E4E4E7',
+  },
+  badgeText: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: '#10B981',
+    flexShrink: 1,
+  },
+
   benefitsContainer: { gap: 16 },
   sectionTitle: { fontSize: 18, fontWeight: '700', color: '#09090B' },
-  benefitsGrid: { gap: 12 },
-  benefitCard: { flex: 1, padding: 16, backgroundColor: '#fff', borderWidth: 1, borderColor: '#E4E4E7', borderRadius: 14, alignItems: 'center', gap: 10, minWidth: '48%' },
-  benefitIcon: { width: 44, height: 44, borderRadius: 12, backgroundColor: '#ECFDF5', justifyContent: 'center', alignItems: 'center' },
+
+  // --- FIXED: real 2-column grid via row + wrap ---
+  benefitsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 12,
+  },
+  benefitCard: {
+    width: '48%',
+    padding: 16,
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#E4E4E7',
+    borderRadius: 14,
+    alignItems: 'center',
+    gap: 10,
+  },
+  benefitIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    backgroundColor: '#ECFDF5',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   benefitTitle: { fontSize: 13, fontWeight: '600', color: '#09090B', textAlign: 'center' },
   benefitDesc: { fontSize: 11, color: '#71717A', textAlign: 'center', lineHeight: 16 },
+
   howItWorks: { gap: 16 },
   steps: { gap: 20 },
   step: { flexDirection: 'row', gap: 16 },
-  stepNumber: { width: 32, height: 32, borderRadius: 16, backgroundColor: '#10B981', justifyContent: 'center', alignItems: 'center', flexShrink: 0 },
+  stepNumber: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: '#10B981',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexShrink: 0,
+  },
   stepNumberText: { fontSize: 14, fontWeight: '600', color: '#fff' },
   stepInfo: { flex: 1, gap: 2 },
   stepTitle: { fontSize: 16, fontWeight: '600', color: '#09090B' },
   stepDesc: { fontSize: 13, color: '#71717A' },
+
   trustedBy: { gap: 12, paddingTop: 8 },
   trustedTitle: { fontSize: 14, fontWeight: '500', color: '#71717A', textAlign: 'center' },
   bankLogos: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 16 },
   bankLogo: { fontSize: 14, fontWeight: '600', color: '#71717A' },
-  continueButton: { paddingVertical: 16, borderRadius: 16, backgroundColor: '#10B981', alignItems: 'center', shadowColor: '#10B981', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.3, shadowRadius: 16, elevation: 8, marginHorizontal: 24, marginBottom: 32 },
+
+  continueButton: {
+    paddingVertical: 16,
+    borderRadius: 16,
+    backgroundColor: '#10B981',
+    alignItems: 'center',
+    shadowColor: '#10B981',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.3,
+    shadowRadius: 16,
+    elevation: 8,
+    marginHorizontal: 24,
+    marginBottom: 32,
+  },
   continueButtonText: { fontSize: 16, fontWeight: '600', color: '#fff' },
 });

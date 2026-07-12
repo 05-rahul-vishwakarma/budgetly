@@ -1,5 +1,3 @@
-'use client';
-
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useEffect } from 'react';

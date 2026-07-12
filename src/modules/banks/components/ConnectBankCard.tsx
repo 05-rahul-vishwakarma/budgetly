@@ -1,5 +1,3 @@
-'use client';
-
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { Shield, Zap, ShieldCheck, BarChart, CreditCard, CheckCircle, Plus } from 'lucide-react-native';
 import { useTheme } from '@/providers/ThemeProvider';

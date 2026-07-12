@@ -1,5 +1,3 @@
-'use client';
-
 import { View, Text, TextInput, Pressable, StyleSheet, KeyboardAvoidingView, Platform, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
@@ -209,6 +207,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 16,
     elevation: 8,
+    margin:20
   },
   continueButtonDisabled: {
     backgroundColor: '#93C5FD',

@@ -1,8 +1,6 @@
 import { create } from 'zustand';
-import { persist, createJSONStorage } from 'zustand/middleware';
 import { User, UserPreferences } from '@/types';
 import { generateId } from '@/utils';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface AuthState {
   user: User | null;
@@ -46,12 +44,10 @@ const mockUser: User = {
   preferences: defaultPreferences,
 };
 
-export const useAuthStore = create<AuthState>()(
-  persist(
-    (set, get) => ({
+export const useAuthStore = create<AuthState>((set, get) => ({
       user: null,
       isAuthenticated: false,
-      isLoading: true,
+      isLoading: false,
 
       login: async (phone: string) => {
         set({ isLoading: true });
@@ -89,14 +85,19 @@ export const useAuthStore = create<AuthState>()(
       initializeAuth: async () => {
         set({ isLoading: true });
         await new Promise(resolve => setTimeout(resolve, 1500));
-        set({ 
-          user: mockUser, 
-          isAuthenticated: true, 
-          isLoading: false 
-        });
+        const { user, isAuthenticated } = get();
+        if (user && isAuthenticated) {
+          set({ isLoading: false });
+        } else {
+          set({ 
+            user: null, 
+            isAuthenticated: false, 
+            isLoading: false 
+          });
+        }
       },
 
-      updatePreferences: (preferences) => {
+      updatePreferences: (preferences: Partial<UserPreferences>) => {
         const currentUser = get().user;
         if (currentUser) {
           set({ 
@@ -108,16 +109,9 @@ export const useAuthStore = create<AuthState>()(
         }
       },
 
-      setUser: (user) => set({ user }),
-      setLoading: (isLoading) => set({ isLoading }),
-    }),
-    {
-      name: 'auth-storage',
-      storage: createJSONStorage(() => AsyncStorage),
-      partialize: (state) => ({ user: state.user, isAuthenticated: state.isAuthenticated }),
-    }
-  )
-);
+      setUser: (user: User | null) => set({ user }),
+      setLoading: (isLoading: boolean) => set({ isLoading }),
+    }));
 
 export const useAuthStoreSetters = () => useAuthStore((state) => ({
   login: state.login,

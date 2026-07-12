@@ -1,5 +1,3 @@
-'use client';
-
 import { createContext, useContext, ReactNode, useMemo } from 'react';
 import { useColorScheme, ColorSchemeName } from 'react-native';
 import { colors as baseColors } from '@/constants/colors';

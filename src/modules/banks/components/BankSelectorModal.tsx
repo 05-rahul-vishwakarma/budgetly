@@ -1,5 +1,3 @@
-'use client';
-
 import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Modal, TextInput, KeyboardAvoidingView, Platform, Animated } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useState, useEffect } from 'react';

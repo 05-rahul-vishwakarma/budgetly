@@ -1,4 +1,3 @@
-'use client';
 
 import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, RefreshControl, Image } from 'react-native';
 import { useRouter } from 'expo-router';

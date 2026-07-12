@@ -1,5 +1,3 @@
-'use client';
-
 import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet, Modal, TextInput, KeyboardAvoidingView, Platform, Switch, Alert, Linking } from 'react-native';
 import { useRouter } from 'expo-router';
 import { ArrowLeft, Mail, Phone, MessageSquare, MapPin, Clock, Globe, Send, Twitter, Github, Linkedin, HelpCircle, Shield, FileText, Gavel, ChevronRight, Database, Trash2, User, Bell, Palette, CreditCard, Tag, Target } from 'lucide-react-native';

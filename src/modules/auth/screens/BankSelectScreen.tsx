@@ -1,5 +1,3 @@
-'use client';
-
 import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { ArrowLeft, Building, CreditCard, ChevronRight, Plus, Shield, Link, AlertCircle, Check } from 'lucide-react-native';
