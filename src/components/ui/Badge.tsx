@@ -1,4 +1,5 @@
 import { View, ViewProps, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { colors } from '@/constants/colors';
 
 interface BadgeProps extends ViewProps {
   children: React.ReactNode;
@@ -8,14 +9,14 @@ interface BadgeProps extends ViewProps {
 }
 
 const variantStyles: Record<string, ViewStyle & { color: string }> = {
-  default: { backgroundColor: '#F4F4F5', color: '#3F3F46' },
-  success: { backgroundColor: '#DCFCE7', color: '#166534' },
-  warning: { backgroundColor: '#FEF9C3', color: '#854D0E' },
-  error: { backgroundColor: '#FEF2F2', color: '#991B1B' },
-  info: { backgroundColor: '#DBEAFE', color: '#1E40AF' },
-  primary: { backgroundColor: '#ECFDF5', color: '#065F46' },
-  income: { backgroundColor: '#DCFCE7', color: '#166534' },
-  expense: { backgroundColor: '#FEF2F2', color: '#991B1B' },
+  default: { backgroundColor: colors.slate[100], color: colors.slate[700] },
+  success: { backgroundColor: colors.emerald[100], color: colors.emerald[800] },
+  warning: { backgroundColor: colors.amber[100], color: colors.amber[900] },
+  error: { backgroundColor: colors.pink[50], color: colors.pink[900] },
+  info: { backgroundColor: colors.secondary[100], color: colors.secondary[800] },
+  primary: { backgroundColor: colors.emerald[50], color: colors.emerald[900] },
+  income: { backgroundColor: colors.emerald[100], color: colors.emerald[800] },
+  expense: { backgroundColor: colors.pink[50], color: colors.pink[900] },
 };
 
 const sizeStyles: Record<string, ViewStyle> = {

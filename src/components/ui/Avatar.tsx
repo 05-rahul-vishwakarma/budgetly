@@ -1,4 +1,5 @@
 import { View, ViewProps, Image, Text, StyleSheet, ViewStyle, ImageStyle } from 'react-native';
+import { colors } from '@/constants/colors';
 
 interface AvatarProps extends ViewProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
@@ -42,15 +43,15 @@ const getInitials = (name: string) => {
 };
 
 const getColor = (name: string) => {
-  const colors = [
-    '#10B981', '#2563EB', '#22C55E', '#F59E0B', '#EF4444',
-    '#8B5CF6', '#EC4899', '#06B6D4', '#6366F1', '#F97316',
+  const colorArray = [
+    colors.teal, colors.secondary[600], colors.success, colors.warning, colors.error,
+    colors.purple[600], colors.pink[500], colors.cyan[500], colors.indigo[500], '#F97316',
   ];
   let hash = 0;
   for (let i = 0; i < name.length; i++) {
     hash = name.charCodeAt(i) + ((hash << 5) - hash);
   }
-  return colors[Math.abs(hash) % colors.length];
+  return colorArray[Math.abs(hash) % colorArray.length];
 };
 
 export const Avatar = ({

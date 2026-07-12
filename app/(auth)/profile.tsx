@@ -20,7 +20,7 @@ export default function ProfileScreen() {
     setIsLoading(true);
     await createProfile(name.trim());
     setIsLoading(false);
-    router.replace('/(tabs)');
+    router.push('/(auth)/permissions');
   };
 
   const handleBack = () => {

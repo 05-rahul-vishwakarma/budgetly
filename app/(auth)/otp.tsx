@@ -71,6 +71,13 @@ export default function OTPScreen() {
     router.replace('/(auth)/profile');
   };
 
+  const handleOTPBlur = () => {
+    const otpString = otp.join('');
+    if (otpString.length === 6 && !isLoading) {
+      handleSubmit();
+    }
+  };
+
   const handleResend = () => {
     if (!canResend) return;
     setResendTimer(60);
@@ -101,6 +108,7 @@ export default function OTPScreen() {
                 value={digit}
                 onChangeText={(value) => handleOTPChange(index, value)}
                 onKeyPress={({ nativeEvent }) => handleKeyPress(index, nativeEvent.key)}
+                onBlur={index === 5 ? handleOTPBlur : undefined}
                 maxLength={1}
                 keyboardType="number-pad"
                 textContentType="oneTimeCode"
@@ -124,6 +132,22 @@ export default function OTPScreen() {
               <Text style={styles.resendTimer}>Resend in {resendTimer}s</Text>
             )}
             <RefreshCw size={16} color="#10B981" />
+          </Pressable>
+
+          <Pressable
+            onPress={handleSubmit}
+            disabled={isLoading || otp.join('').length !== 6}
+            style={[
+              styles.verifyButton,
+              (isLoading || otp.join('').length !== 6) && styles.verifyButtonDisabled,
+            ]}
+            android_ripple={{ color: 'rgba(255,255,255,0.2)' }}
+          >
+            {isLoading ? (
+              <Text style={styles.verifyButtonText}>Verifying...</Text>
+            ) : (
+              <Text style={styles.verifyButtonText}>Verify OTP</Text>
+            )}
           </Pressable>
         </View>
 
@@ -223,6 +247,29 @@ const styles = StyleSheet.create({
   resendTimer: {
     fontSize: 14,
     color: '#71717A',
+  },
+  verifyButton: {
+    paddingVertical: 16,
+    borderRadius: 16,
+    backgroundColor: '#10B981',
+    alignItems: 'center',
+    width: '100%',
+    marginTop: 16,
+    shadowColor: '#10B981',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.3,
+    shadowRadius: 16,
+    elevation: 8,
+  },
+  verifyButtonDisabled: {
+    backgroundColor: '#93C5FD',
+    shadowOpacity: 0,
+    elevation: 0,
+  },
+  verifyButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
   },
   bottomActions: {
     paddingTop: 24,

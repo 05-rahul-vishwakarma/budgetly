@@ -1,6 +1,7 @@
 import { TextInput, TextInputProps, View, ViewProps, Text, StyleSheet } from 'react-native';
 import { LucideProps } from 'lucide-react-native';
 import { ForwardedRef, forwardRef } from 'react';
+import { colors } from '@/constants/colors';
 
 interface InputProps extends TextInputProps {
   label?: string;
@@ -89,21 +90,21 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#374151',
+    color: colors.text.muted2,
     marginBottom: 6,
   },
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     borderWidth: 2,
-    borderColor: '#E4E4E7',
+    borderColor: colors.border.light,
     borderRadius: 14,
     paddingHorizontal: 16,
     height: 56,
   },
   inputWrapperError: {
-    borderColor: '#EF4444',
+    borderColor: colors.error,
   },
   inputWrapperDisabled: {
     opacity: 0.5,
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     fontWeight: '500',
-    color: '#09090B',
+    color: colors.text.primary.light,
     paddingHorizontal: 0,
   },
   helperText: {
@@ -130,9 +131,9 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   helperTextError: {
-    color: '#EF4444',
+    color: colors.error,
   },
   helperTextMuted: {
-    color: '#71717A',
+    color: colors.text.muted.light,
   },
 });

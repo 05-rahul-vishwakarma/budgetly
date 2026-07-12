@@ -1,4 +1,5 @@
 import { View, ViewProps, Pressable, PressableProps, StyleSheet, Text } from 'react-native';
+import { colors } from '@/constants/colors';
 
 interface CardProps extends ViewProps {
   className?: string;
@@ -41,7 +42,7 @@ export const Card = ({
       {children}
     </Component>
   );
-}
+};
 
 interface CardPressableProps extends PressableProps {
   variant?: 'default' | 'outlined' | 'elevated';
@@ -100,18 +101,18 @@ const styles = StyleSheet.create({
     borderRadius: 16,
   },
   default: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     borderWidth: 1,
-    borderColor: '#E4E4E7',
+    borderColor: colors.border.light,
   },
   outlined: {
     backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: '#E4E4E7',
+    borderColor: colors.border.light,
   },
   elevated: {
-    backgroundColor: '#fff',
-    shadowColor: '#000',
+    backgroundColor: colors.white,
+    shadowColor: colors.black,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
     shadowRadius: 16,
@@ -130,11 +131,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#09090B',
+    color: colors.text.primary.light,
   },
   description: {
     fontSize: 14,
-    color: '#71717A',
+    color: colors.text.muted.light,
     marginTop: 4,
   },
   content: {},
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
     paddingTop: 16,
     borderTopWidth: 1,
-    borderTopColor: '#E4E4E7',
+    borderTopColor: colors.border.light,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',

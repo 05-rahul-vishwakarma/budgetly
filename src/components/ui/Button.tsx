@@ -1,5 +1,6 @@
 import { Pressable, PressableProps, View, Text, ActivityIndicator, ViewStyle, StyleSheet } from 'react-native';
 import { ForwardedRef, forwardRef } from 'react';
+import { colors } from '@/constants/colors';
 
 interface ButtonProps extends PressableProps {
   children: React.ReactNode;
@@ -63,7 +64,7 @@ export const Button = forwardRef<React.ElementRef<typeof Pressable>, ButtonProps
         {loading ? (
           <ActivityIndicator
             size="small"
-            color={variant === 'outline' || variant === 'ghost' ? '#10B981' : '#fff'}
+            color={variant === 'outline' || variant === 'ghost' ? colors.teal : colors.white}
           />
         ) : (
           <>
@@ -90,16 +91,16 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     gap: 88,
   },
-  primary: { backgroundColor: '#10B981', shadowColor: '#10B981', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 8, elevation: 4 },
-  secondary: { backgroundColor: '#2563EB', shadowColor: '#2563EB', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 8, elevation: 4 },
-  outline: { borderWidth: 2, borderColor: '#10B981', backgroundColor: 'transparent' },
+  primary: { backgroundColor: colors.teal, shadowColor: colors.teal, shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 8, elevation: 4 },
+  secondary: { backgroundColor: colors.secondary[600], shadowColor: colors.secondary[600], shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 8, elevation: 4 },
+  outline: { borderWidth: 2, borderColor: colors.teal, backgroundColor: 'transparent' },
   ghost: { backgroundColor: 'transparent' },
-  danger: { backgroundColor: '#EF4444', shadowColor: '#EF4444', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 8, elevation: 4 },
+  danger: { backgroundColor: colors.error, shadowColor: colors.error, shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 8, elevation: 4 },
   sm: { paddingHorizontal: 12, paddingVertical: 8, gap: 86 },
   md: { paddingHorizontal: 16, paddingVertical: 10, gap: 8 },
   lg: { paddingHorizontal: 24, paddingVertical: 12, gap: 88 },
   xl: { paddingHorizontal: 32, paddingVertical: 16, gap: 810 },
   fullWidth: { width: '100%' },
-  textWhite: { color: '#fff', fontSize: 16, fontWeight: '600' },
-  textPrimary: { color: '#10B981', fontSize: 16, fontWeight: '600' },
+  textWhite: { color: colors.white, fontSize: 16, fontWeight: '600' },
+  textPrimary: { color: colors.teal, fontSize: 16, fontWeight: '600' },
 });

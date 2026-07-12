@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { categories, banks, monthNames } from '@/constants/colors';
+import { categories, banks, monthNames, colors } from '@/constants/colors';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -111,18 +111,18 @@ export function maskAccountNumber(accountNumber: string, visibleDigits = 4): str
 
 export function getCategoryColor(categoryId: string): string {
   const categoryColors: Record<string, string> = {
-    food: '#EF4444',
-    shopping: '#EC4899',
-    transport: '#3B82F6',
-    bills: '#F59E0B',
-    entertainment: '#8B5CF6',
-    healthcare: '#10B981',
-    education: '#06B6D4',
-    investment: '#6366F1',
-    income: '#22C55E',
-    others: '#71717A',
+    food: colors.error,
+    shopping: colors.pink[500],
+    transport: colors.secondary[500],
+    bills: colors.warning,
+    entertainment: colors.purple[600],
+    healthcare: colors.teal,
+    education: colors.cyan[500],
+    investment: colors.indigo[500],
+    income: colors.success,
+    others: colors.text.muted.light,
   };
-  return categoryColors[categoryId] || '#71717A';
+  return categoryColors[categoryId] || colors.text.muted.light;
 }
 
 export { categories, banks, monthNames };

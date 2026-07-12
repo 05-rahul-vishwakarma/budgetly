@@ -4,6 +4,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useEffect } from 'react';
 import { cn } from '@/utils';
+import { colors } from '@/constants/colors';
 
 export const SplashScreen = () => {
   const router = useRouter();
@@ -34,7 +35,7 @@ export const SplashScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#10B981',
+    backgroundColor: colors.teal,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -42,11 +43,11 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 24,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 24,
-    shadowColor: '#000',
+    shadowColor: colors.black,
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.2,
     shadowRadius: 20,
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#fff',
+    color: colors.white,
     marginBottom: 8,
     letterSpacing: -0.5,
   },
@@ -81,6 +82,6 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '0%',
     borderRadius: 2,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
   },
 });

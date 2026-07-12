@@ -1,7 +1,7 @@
 import { View, Text, Pressable, ViewStyle, StyleSheet, Image } from 'react-native';
 import { BankAccount } from '@/types';
 import { formatCurrency, maskAccountNumber } from '@/utils';
-import { banks } from '@/constants/colors';
+import { banks, colors } from '@/constants/colors';
 import { CheckCircle, AlertCircle, RefreshCw, MoreHorizontal } from 'lucide-react-native';
 
 interface BankCardProps {
@@ -25,12 +25,12 @@ export const BankCard = ({
   const isActive = account.isActive;
   
   const getStatusConfig = () => {
-    if (!isActive) return { label: 'Disconnected', icon: AlertCircle, color: '#EF4444' };
+    if (!isActive) return { label: 'Disconnected', icon: AlertCircle, color: colors.error };
     if (account.lastSyncedAt) {
       const hoursSinceSync = (Date.now() - new Date(account.lastSyncedAt).getTime()) / 3600000;
-      if (hoursSinceSync > 24) return { label: 'Sync needed', icon: RefreshCw, color: '#F59E0B' };
+      if (hoursSinceSync > 24) return { label: 'Sync needed', icon: RefreshCw, color: colors.warning };
     }
-    return { label: 'Connected', icon: CheckCircle, color: '#22C55E' };
+    return { label: 'Connected', icon: CheckCircle, color: colors.success };
   };
 
   const status = getStatusConfig();
@@ -66,7 +66,7 @@ export const BankCard = ({
         )}
         {onMorePress && (
           <Pressable onPress={onMorePress} style={styles.moreButton}>
-            <MoreHorizontal size={20} color="#71717A" />
+            <MoreHorizontal size={20} color={colors.text.muted.light} />
           </Pressable>
         )}
       </Pressable>
@@ -126,7 +126,7 @@ export const BankCard = ({
           </View>
           {onMorePress && (
             <Pressable onPress={onMorePress} style={styles.moreButton}>
-              <MoreHorizontal size={20} color="#71717A" />
+              <MoreHorizontal size={20} color={colors.text.muted.light} />
             </Pressable>
           )}
         </View>
@@ -152,7 +152,7 @@ export const BankCard = ({
         )}
         {account.lastSyncedAt && (
           <View style={styles.defaultFooterItem}>
-            <RefreshCw size={14} color="#71717A" />
+            <RefreshCw size={14} color={colors.text.muted.light} />
             <Text style={styles.defaultFooterValue}>Synced {formatRelativeTime(account.lastSyncedAt)}</Text>
           </View>
         )}
@@ -167,10 +167,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 12,
     padding: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#E4E4E7',
+    borderColor: colors.border.light,
   },
   bankAvatar: {
     width: 48,
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
   bankName: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#09090B',
+    color: colors.text.primary.light,
   },
   statusRow: {
     flexDirection: 'row',
@@ -214,11 +214,11 @@ const styles = StyleSheet.create({
   },
   metaText: {
     fontSize: 13,
-    color: '#71717A',
+    color: colors.text.muted.light,
   },
   metaDivider: {
     fontSize: 13,
-    color: '#E4E4E7',
+    color: colors.border.light,
   },
   fontMono: {
     fontFamily: 'monospace',
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
   balanceText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#09090B',
+    color: colors.text.primary.light,
     marginLeft: 8,
   },
   moreButton: {
@@ -234,10 +234,10 @@ const styles = StyleSheet.create({
   },
   compactContainer: {
     padding: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#E4E4E7',
+    borderColor: colors.border.light,
   },
   compactHeader: {
     flexDirection: 'row',
@@ -259,12 +259,12 @@ const styles = StyleSheet.create({
   compactBankName: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#09090B',
+    color: colors.text.primary.light,
     marginBottom: 2,
   },
   compactAccount: {
     fontSize: 12,
-    color: '#71717A',
+    color: colors.text.muted.light,
     fontFamily: 'monospace',
   },
   compactStatus: {
@@ -284,18 +284,18 @@ const styles = StyleSheet.create({
   compactBalanceAmount: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#09090B',
+    color: colors.text.primary.light,
   },
   compactAccountType: {
     fontSize: 12,
-    color: '#71717A',
+    color: colors.text.muted.light,
   },
   defaultContainer: {
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#E4E4E7',
+    borderColor: colors.border.light,
   },
   defaultHeader: {
     flexDirection: 'row',
@@ -322,11 +322,11 @@ const styles = StyleSheet.create({
   defaultBankName: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#09090B',
+    color: colors.text.primary.light,
   },
   defaultAccountType: {
     fontSize: 13,
-    color: '#71717A',
+    color: colors.text.muted.light,
   },
   defaultStatusRow: {
     flexDirection: 'row',
@@ -350,21 +350,21 @@ const styles = StyleSheet.create({
   },
   defaultBalanceLabel: {
     fontSize: 12,
-    color: '#71717A',
+    color: colors.text.muted.light,
     fontWeight: '500',
     marginBottom: 4,
   },
   defaultBalanceAmount: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#09090B',
+    color: colors.text.primary.light,
   },
   defaultFooter: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: '#E4E4E7',
+    borderTopColor: colors.border.light,
   },
   defaultFooterItem: {
     flexDirection: 'row',
@@ -373,12 +373,12 @@ const styles = StyleSheet.create({
   },
   defaultFooterLabel: {
     fontSize: 12,
-    color: '#71717A',
+    color: colors.text.muted.light,
   },
   defaultFooterValue: {
     fontSize: 12,
     fontWeight: '500',
-    color: '#52525B',
+    color: colors.text.secondary.light,
   },
 });
 

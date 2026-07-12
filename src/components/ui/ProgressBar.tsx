@@ -1,4 +1,5 @@
 import { View, Text, ViewProps, StyleSheet, ViewStyle } from 'react-native';
+import { colors } from '@/constants/colors';
 
 interface ProgressBarProps extends ViewProps {
   progress: number;
@@ -14,11 +15,11 @@ interface ProgressBarProps extends ViewProps {
 }
 
 const colorMap: Record<string, string> = {
-  primary: '#10B981',
-  secondary: '#2563EB',
-  success: '#22C55E',
-  warning: '#F59E0B',
-  error: '#EF4444',
+  primary: colors.teal,
+  secondary: colors.secondary[600],
+  success: colors.success,
+  warning: colors.warning,
+  error: colors.error,
 };
 
 export const ProgressBar = ({
@@ -76,12 +77,12 @@ const styles = StyleSheet.create({
   },
   labelText: {
     fontSize: 12,
-    color: '#71717A',
+    color: colors.text.muted.light,
   },
   labelValue: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#52525B',
+    color: colors.text.secondary.light,
   },
   track: {
     overflow: 'hidden',
@@ -98,6 +99,6 @@ const styles = StyleSheet.create({
     borderRadius: 9999,
   },
   defaultTrack: {
-    backgroundColor: '#E4E4E7',
+    backgroundColor: colors.border.light,
   },
 });
