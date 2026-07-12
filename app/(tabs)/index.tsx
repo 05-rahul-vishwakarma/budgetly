@@ -13,10 +13,13 @@ import { Avatar } from '@/components/ui/Avatar';
 import { TransactionCard } from '@/modules/transactions/components/TransactionCard';
 import { BudgetCard } from '@/modules/budget/components/BudgetCard';
 import { BankCard } from '@/modules/banks/components/BankCard';
+import { ConnectBankCard } from '@/modules/banks/components/ConnectBankCard';
+import { BankSelectorModal } from '@/modules/banks/components/BankSelectorModal';
 import { useTransactionStore } from '@/modules/transactions/store/transactionStore';
 import { useBankStore } from '@/modules/banks/store/bankStore';
 import { useBudgetStore } from '@/modules/budget/store/budgetStore';
 import { useAuthStore } from '@/modules/auth/store/authStore';
+import { useTheme } from '@/providers/ThemeProvider';
 import { Transaction, BudgetWithProgress, BankAccount } from '@/types';
 
 const mockTransactions: Transaction[] = [
@@ -45,6 +48,8 @@ export default function DashboardScreen() {
   const { accounts } = useBankStore();
   const { budgets } = useBudgetStore();
   const [refreshing, setRefreshing] = useState(false);
+  const [showBankSelector, setShowBankSelector] = useState(false);
+  const { colors: c } = useTheme();
 
   const totalBalance = accounts.reduce((sum: number, acc: BankAccount) => sum + acc.balance, 0);
   const monthlyIncome = transactions
@@ -183,40 +188,53 @@ export default function DashboardScreen() {
         </View>
 
         <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitleText}>Connected Accounts</Text>
+          <Text style={[styles.sectionTitleText, { color: c.text.primary }]}>Connected Accounts</Text>
           <Pressable style={styles.seeAllButton} onPress={() => router.push('/accounts' as any)}>
             <Text style={styles.seeAllText}>Manage</Text>
-            <ChevronRight size={16} color="#71717A" />
+            <ChevronRight size={16} color={c.text.muted} />
           </Pressable>
         </View>
 
         <View style={styles.accountList}>
-          {accounts.map((account: BankAccount) => (
-            <BankCard key={account.id} account={account} variant="list" showBalance />
-          ))}
+          {accounts.length > 0 ? (
+            accounts.map((account: BankAccount) => (
+              <BankCard key={account.id} account={account} variant="list" showBalance />
+            ))
+          ) : (
+            <ConnectBankCard onPress={() => setShowBankSelector(true)} />
+          )}
         </View>
 
         <View style={styles.quickActions}>
-          <Pressable style={styles.actionButton} onPress={() => router.push('/add-transaction' as any)}>
-            <View style={styles.actionIcon}>
-              <Plus size={24} color="#10B981" />
+          <Pressable style={[styles.actionButton, { backgroundColor: c.card }]} onPress={() => router.push('/add-transaction' as any)}>
+            <View style={[styles.actionIcon, { backgroundColor: `${c.teal}15` }]}>
+              <Plus size={24} color={c.teal} />
             </View>
-            <Text style={styles.actionText}>Add Transaction</Text>
+            <Text style={[styles.actionText, { color: c.text.primary }]}>Add Transaction</Text>
           </Pressable>
-          <Pressable style={styles.actionButton} onPress={() => router.push('/budget/create' as any)}>
-            <View style={styles.actionIcon}>
-              <Target size={24} color="#10B981" />
+          <Pressable style={[styles.actionButton, { backgroundColor: c.card }]} onPress={() => router.push('/budget/create' as any)}>
+            <View style={[styles.actionIcon, { backgroundColor: '#8B5CF615' }]}>
+              <Target size={24} color="#8B5CF6" />
             </View>
-            <Text style={styles.actionText}>Create Budget</Text>
+            <Text style={[styles.actionText, { color: c.text.primary }]}>Create Budget</Text>
           </Pressable>
-          <Pressable style={styles.actionButton} onPress={() => router.push('/connect-bank' as any)}>
-            <View style={styles.actionIcon}>
-              <CreditCard size={24} color="#10B981" />
+          <Pressable style={[styles.actionButton, { backgroundColor: c.card }]} onPress={() => setShowBankSelector(true)}>
+            <View style={[styles.actionIcon, { backgroundColor: '#F59E0B15' }]}>
+              <CreditCard size={24} color="#F59E0B" />
             </View>
-            <Text style={styles.actionText}>Link Account</Text>
+            <Text style={[styles.actionText, { color: c.text.primary }]}>Link Account</Text>
           </Pressable>
         </View>
       </ScrollView>
+
+      <BankSelectorModal
+        visible={showBankSelector}
+        onClose={() => setShowBankSelector(false)}
+        onBankSelect={(bankId) => {
+          setShowBankSelector(false);
+          router.push('/(auth)/bank-select' as any);
+        }}
+      />
     </SafeAreaView>
   );
 }

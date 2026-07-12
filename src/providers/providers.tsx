@@ -8,6 +8,7 @@ import { Appearance } from 'react-native';
 import { useAuthStore } from '@/modules/auth/store/authStore';
 import { useUIStore } from '@/stores';
 import { AuthProvider } from '@/hooks/useAuth';
+import { ThemeProvider } from './ThemeProvider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,9 +42,11 @@ export function Providers({ children }: { children: ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        {children}
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+      </ThemeProvider>
       <ReactQueryDevtoolsWrapper />
     </QueryClientProvider>
   );

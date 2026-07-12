@@ -65,9 +65,7 @@ export default function SettingsScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Pressable onPress={handleBack} style={styles.backButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
-        <ArrowLeft size={24} color="#374151" />
-      </Pressable>
+      
 
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
