@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Avatar } from '@/components/ui/Avatar';
 import { Input } from '@/components/ui/Input';
-import { useAuthStore } from '@/features/auth/store/authStore';
+import { useAuthStore } from '@/modules/auth/store/authStore';
 import { useUIStore } from '@/stores';
 
 interface SettingsItem {

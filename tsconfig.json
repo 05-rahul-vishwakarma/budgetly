@@ -9,7 +9,7 @@
       "@/components": ["./src/components"],
       "@/components/*": ["./src/components/*"],
       "@/components/ui/*": ["./src/components/ui/*"],
-      "@/features/*": ["./src/features/*"],
+      "@/modules/*": ["./src/modules/*"],
       "@/hooks": ["./src/hooks/index.ts"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/utils": ["./src/utils/index.ts"],

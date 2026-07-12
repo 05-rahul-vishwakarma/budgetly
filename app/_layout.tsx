@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
 import { Providers } from '@/providers/providers';
-import { useAuthStore } from '@/features/auth/store/authStore';
+import { useAuthStore } from '@/modules/auth/store/authStore';
 import { SplashScreen } from '@/components/ui/SplashScreen';
 import { useEffect } from 'react';
 

@@ -4,15 +4,15 @@ import { View, Text, Pressable, ScrollView, SafeAreaView, StyleSheet } from 'rea
 import { useRouter } from 'expo-router';
 import { useState, useEffect } from 'react';
 import { Plus, Search, Filter, ChevronDown, ChevronUp, Calendar, CreditCard, Tag, ArrowDown, ArrowUp } from 'lucide-react-native';
-import { TransactionCard } from '@/features/transactions/components/TransactionCard';
+import { TransactionCard } from '@/modules/transactions/components/TransactionCard';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
 import { formatDate, formatRelativeTime, getCategoryColor, sortBy, categories } from '@/utils';
 import { Transaction } from '@/types';
-import { useTransactionStore } from '@/features/transactions/store/transactionStore';
-import { useAuthStore } from '@/features/auth/store/authStore';
+import { useTransactionStore } from '@/modules/transactions/store/transactionStore';
+import { useAuthStore } from '@/modules/auth/store/authStore';
 
 const mockTransactions: Transaction[] = [
   { id: '1', userId: '1', accountId: '1', amount: 450, type: 'debit', category: 'food', merchant: 'Swiggy', description: 'Lunch order', date: new Date().toISOString(), status: 'completed', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },

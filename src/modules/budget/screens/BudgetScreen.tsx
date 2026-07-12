@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
 import { formatCurrency } from '@/utils';
-import { useBudgetStore } from '@/features/budget/store/budgetStore';
+import { useBudgetStore } from '@/modules/budget/store/budgetStore';
 
 const mockBudgets = [
   { id: '1', name: 'Monthly Spending', period: 'monthly', amount: 50000, spent: 32450, categories: ['Food & Dining', 'Transport', 'Shopping'], alertAt: 80, alertEnabled: true },

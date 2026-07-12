@@ -4,7 +4,7 @@ import { View, Text, TextInput, Pressable, StyleSheet, KeyboardAvoidingView, Pla
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Camera, UserPlus, Shield, CheckCircle, ArrowLeft } from 'lucide-react-native';
-import { useAuthStore } from '@/features/auth/store/authStore';
+import { useAuthStore } from '@/modules/auth/store/authStore';
 import { Avatar } from '@/components/ui/Avatar';
 
 export default function ProfileScreen() {

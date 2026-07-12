@@ -11,7 +11,7 @@ import { ProgressBar } from '@/components/ui/ProgressBar';
 import { Input } from '@/components/ui/Input';
 import { formatCurrency, getCategoryColor, categories } from '@/utils';
 import { BudgetWithProgress } from '@/types';
-import { useBudgetStore } from '@/features/budget/store/budgetStore';
+import { useBudgetStore } from '@/modules/budget/store/budgetStore';
 
 const mockBudgets: BudgetWithProgress[] = [
   { id: '1', userId: '1', categoryId: 'food', amount: 15000, period: 'monthly', startDate: '2024-01-01', endDate: '2024-01-31', alertThreshold: 80, isActive: true, rollover: false, createdAt: '', updatedAt: '', spent: 8500, remaining: 6500, progress: 56.7, isOverBudget: false, daysRemaining: 15, categoryName: 'Food' },

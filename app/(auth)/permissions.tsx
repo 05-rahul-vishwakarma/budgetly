@@ -3,7 +3,7 @@
 import { View, Text, Pressable, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { ArrowLeft, CheckCircle, AlertCircle, Shield, MessageSquare, Bell, Check } from 'lucide-react-native';
-import { useAuthStore } from '@/features/auth/store/authStore';
+import { useAuthStore } from '@/modules/auth/store/authStore';
 
 export default function PermissionsScreen() {
   const router = useRouter();

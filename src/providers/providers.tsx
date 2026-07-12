@@ -5,7 +5,7 @@ import { ReactNode, useEffect } from 'react';
 import { Platform } from 'react-native';
 import { useColorScheme } from 'react-native';
 import { Appearance } from 'react-native';
-import { useAuthStore } from '@/features/auth/store/authStore';
+import { useAuthStore } from '@/modules/auth/store/authStore';
 import { useUIStore } from '@/stores';
 import { AuthProvider } from '@/hooks/useAuth';
 

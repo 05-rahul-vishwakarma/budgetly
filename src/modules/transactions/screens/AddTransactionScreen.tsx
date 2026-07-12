@@ -4,8 +4,8 @@ import { View, Text, Pressable, StyleSheet, KeyboardAvoidingView, Platform, Moda
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ArrowLeft, Plus, Save, X, ChevronRight, Tag, CreditCard, Calendar, DollarSign, ArrowUp, ArrowDown, CheckCircle } from 'lucide-react-native';
-import { useTransactionStore } from '@/features/transactions/store/transactionStore';
-import { useAuthStore } from '@/features/auth/store/authStore';
+import { useTransactionStore } from '@/modules/transactions/store/transactionStore';
+import { useAuthStore } from '@/modules/auth/store/authStore';
 import { Transaction } from '@/types';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';

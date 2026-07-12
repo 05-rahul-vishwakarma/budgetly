@@ -4,7 +4,7 @@ import { View, Text, TextInput, Pressable, StyleSheet, KeyboardAvoidingView, Pla
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { ArrowRight, Phone, CheckCircle } from 'lucide-react-native';
-import { useAuthStore } from '@/features/auth/store/authStore';
+import { useAuthStore } from '@/modules/auth/store/authStore';
 
 export default function PhoneScreen() {
   const router = useRouter();
